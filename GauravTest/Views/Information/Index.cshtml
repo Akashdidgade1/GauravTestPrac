@@ -1,0 +1,223 @@
+﻿@model InfoVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @*    <div class="form-group">
+        <label asp-for="Id" class="control-label"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+        </div>*@
+        <div class="row">
+            <div class="form-group col-6">
+                <label asp-for="Information. Fullname" class="control-label"></label>
+                <input asp-for="Information.Fullname" class="form-control" />
+                <span asp-validation-for="Information.Fullname" class="text-danger"></span>
+            </div>
+            <div class="form-group row col-6">
+                <label asp-for="Information.Gender" class="control-label"></label>
+                <div class="form-check col-6">
+                    <input type="radio" asp-for="Information.Gender" value="Male" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Information.Gender">Male</label>
+                </div>
+                <div class="form-check col-6">
+                    <input type="radio" asp-for="Information.Gender" value="Female" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Information.Gender">Female</label>
+                </div>
+                <span asp-validation-for="Information.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.DateOfBirth" class="control-label"></label>
+                <input asp-for="Information.DateOfBirth" class="form-control" />
+                <span asp-validation-for="Information.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.Nationality" class="control-label"></label>
+                <div class="form-check col-6">
+                    <input type="radio" asp-for="Information.Nationality" value="Indian" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Information.Nationality">Indian</label>
+                </div>
+                <div class="form-check col-6">
+                    <input type="radio" asp-for="Information.Nationality" value="others" class="form-check-input" />
+                    <label class="form-check-label" asp-for="Information.Nationality">Others</label>
+                </div>
+                <span asp-validation-for="Information.Nationality" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.Country" class="control-label"></label>
+                <select asp-for="Information.Country" class="form-select">
+                    <option value="India">India</option>
+                    <option value="Us">Us</option>
+                    <option value="Canada">Canada</option>
+                </select>
+                <span asp-validation-for="Information.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.State" class="control-label"></label>
+                <select asp-for="Information.State" class="form-select">
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Kolkata">Kolkata</option>
+                </select>
+                <span asp-validation-for="Information.State" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.Photo" class="control-label"></label>
+                <input type="file" name="file" id="file" asp-for="Information.Photo" class="form-control" />
+                <span asp-validation-for="Information.Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.Details" class="control-label"></label>
+                <textarea asp-for="Information.Details" class="form-control"></textarea>
+
+                <span asp-validation-for="Information.Details" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.Address" class="control-label"></label>
+                <input asp-for="Information.Address" class="form-control" />
+                <span asp-validation-for="Information.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col-6">
+                <label asp-for="Information.Hobby" class="control-label"></label>
+                <div class="form-check">
+                    <input type="checkbox" asp-for="Information.Hobby" value="Reading" class="form-check-input" />
+                    <label class="form-check-label">Reading</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" asp-for="Information.Hobby" value="Watching TV" class="form-check-input" />
+                    <label class="form-check-label">Watching tv</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" asp-for="Information.Hobby" value="Playing games" class="form-check-input" />
+                    <label class="form-check-label">Playing games</label>
+                </div>
+                <span asp-validation-for="Information.Hobby" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success btn-lg form-control" />
+            </div>
+        </div>
+    </form>
+</div>
+<br />
+<hr />
+
+<table class="table pt-5">
+    <thead>
+        <tr>
+            <th>
+           Id
+            </th>
+            <th>
+       Full Name
+            </th>
+            <th>
+      Gender
+            </th>
+            <th>
+                Date Of Birth
+            </th>
+            <th>
+              Nationality
+            </th>
+            <th>
+            Country
+            </th>
+            <th>
+             State
+            </th>
+            <th>
+             Photo
+            </th>
+            <th>
+             Details
+            </th>
+            <th>
+
+               Address
+            </th>
+            <th>
+            Hobby
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.list) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                    <img src="/Image/@item.Photo" height="40" width="40">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hobby)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+*@
+
+
+

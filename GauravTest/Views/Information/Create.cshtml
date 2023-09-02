@@ -1,0 +1,121 @@
+﻿@model GauravCrudNagpur.Models.Information
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Information</h4>
+<hr />
+<div class="">
+    <div class="row">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*    <div class="form-group">
+            <label asp-for="Id" class="control-label"></label>
+            <input asp-for="Id" class="form-control" />
+            <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="row">
+                <div class="form-group col-6">
+                    <label asp-for="Fullname" class="control-label"></label>
+                    <input asp-for="Fullname" class="form-control" />
+                    <span asp-validation-for="Fullname" class="text-danger"></span>
+                </div>
+                <div class="form-group row col-6">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <div class="form-check col-6">
+                        <input type="radio" asp-for="Gender" value="Male" class="form-check-input" />
+                        <label class="form-check-label" asp-for="Gender">Male</label>
+                    </div>
+                    <div class="form-check col-6">
+                        <input type="radio" asp-for="Gender" value="Female" class="form-check-input" />
+                        <label class="form-check-label" asp-for="Gender">Female</label>
+                    </div>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="DateOfBirth" class="control-label"></label>
+                    <input asp-for="DateOfBirth" class="form-control" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="Nationality" class="control-label"></label>
+                    <div class="form-check col-6">
+                        <input type="radio" asp-for="Nationality" value="Indian" class="form-check-input" />
+                        <label class="form-check-label" asp-for="Nationality">Indian</label>
+                    </div>
+                    <div class="form-check col-6">
+                        <input type="radio" asp-for="Nationality" value="others" class="form-check-input" />
+                        <label class="form-check-label" asp-for="Nationality">Others</label>
+                    </div>
+                    <span asp-validation-for="Nationality" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="Country" class="control-label"></label>
+                    <select asp-for="Country" class="form-select">
+                        <option value="India">India</option>
+                        <option value="Us">Us</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="State" class="control-label"></label>
+                    <select asp-for="State" class="form-select">
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Kolkata">Kolkata</option>
+                    </select>
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="Photo" class="control-label"></label>
+                    <input type="file" asp-for="Photo" class="form-control" />
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="Details" class="control-label"></label>
+                    <textarea asp-for="Details" class="form-control"></textarea>
+
+                    <span asp-validation-for="Details" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group col-6">
+                    <label asp-for="Hobby" class="control-label"></label>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="Hobby" value="Reading" class="form-check-input" />
+                        <label class="form-check-label">Reading</label>
+                    </div>
+                       <div class="form-check">
+                        <input type="checkbox" asp-for="Hobby" value="Watching TV" class="form-check-input" />
+                        <label class="form-check-label">Watching tv</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" asp-for="Hobby" value="Playing games" class="form-check-input" />
+                        <label class="form-check-label">Playing games</label>
+                    </div>
+                    <span asp-validation-for="Hobby" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary btn-lg"  />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
